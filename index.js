@@ -1,17 +1,17 @@
-window.addEventListener('UC_UI_IS_INTIALIZED', function (event) {
-   
+window.addEventListener('load', function (event) {
     // initialized
-    console.log('UC initialized');
+    console.log('window loaded');
     // check status 
     var uc_user_interaction = localStorage.getItem('uc_user_interaction');
     console.log('interaction status: ' + uc_user_interaction);
-    
-    var uc_button_container = document.getElementById('usercentrics-root');
-    console.log('hide the button…');
-    uc_button_container.style.display = 'none';
     if (!uc_user_interaction) {
-        console.log('show the button…');
+        console.log('let’s show the button');
+        var uc_button_container = document.getElementById('usercentrics-root');
         uc_button_container.style.display = 'block';
+    } else {
+        console.log('let’s hide the button');
+        var uc_button_container = document.getElementById('usercentrics-root');
+        uc_button_container.style.display = 'none';
     }
 });
 window.addEventListener('UC_UI_VIEW_CHANGED', function (event) {
